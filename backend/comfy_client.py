@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Hugging Face Inference API details
-HF_API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
+HF_API_URL = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell"
 HF_TOKEN = os.getenv("HF_TOKEN")
 
 async def generate_image(prompt: str):
