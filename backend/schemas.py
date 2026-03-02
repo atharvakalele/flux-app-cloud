@@ -3,62 +3,61 @@ from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
 class UserBase(BaseModel):
-      username: str
+    username: str
 
 class UserCreate(UserBase):
-      password: str
+    password: str
 
 class User(UserBase):
-      id: int
-      is_active: bool
-      created_at: datetime
+    id: int
+    is_active: bool
+    created_at: datetime
 
     class Config:
-              from_attributes = True
+        from_attributes = True
 
 class Token(BaseModel):
-      access_token: str
-      token_type: str
+    access_token: str
+    token_type: str
 
 class TokenData(BaseModel):
-      username: Optional[str] = None
+    username: Optional[str] = None
 
 class MessageBase(BaseModel):
-      content: str
+    content: str
 
 class MessageCreate(MessageBase):
-      pass
+    pass
 
 class ChatMessage(MessageBase):
-      id: int
-      role: str
-      image_url: Optional[str] = None
-      created_at: datetime
+    id: int
+    role: str
+    image_url: Optional[str] = None
+    created_at: datetime
 
     class Config:
-              from_attributes = True
+        from_attributes = True
 
 class ChatRoomBase(BaseModel):
-      title: str
+    title: str
 
 class ChatRoomCreate(ChatRoomBase):
-      pass
+    pass
 
 class ChatRoom(ChatRoomBase):
-      id: int
-      user_id: int
-      created_at: datetime
-      messages: List[ChatMessage] = []
+    id: int
+    user_id: int
+    created_at: datetime
+    messages: List[ChatMessage] = []
 
     class Config:
-              from_attributes = True
+        from_attributes = True
 
 class ImageMetadata(BaseModel):
-      id: int
-      prompt: str
-      url: str
-      created_at: datetime
+    id: int
+    prompt: str
+    url: str
+    created_at: datetime
 
     class Config:
-              from_attributes = True
-      
+        from_attributes = True
